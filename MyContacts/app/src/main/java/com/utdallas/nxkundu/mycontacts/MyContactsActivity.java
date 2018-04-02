@@ -22,11 +22,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Created by nxkundu on 3/28/18.
+ * Written by Nirmallya Kundu for CS6326.001,
+ * assignment 4, starting March 28, 2018.
+ * NetID: nxk161830
+ */
+
+
 public class MyContactsActivity extends AppCompatActivity implements Serializable {
 
     ListView objListViewMyContacts = null;
 
     List<Contact> lstContacts = new ArrayList<>();
+
+
+    /**************************************************************************
+     *
+     * onCreate() - This method is called when the app begins
+     *
+     **************************************************************************/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +51,13 @@ public class MyContactsActivity extends AppCompatActivity implements Serializabl
 
         objListViewMyContacts = (ListView) findViewById(R.id.listViewMyContacts);
     }
+
+
+    /**************************************************************************
+     *
+     * onStart() - This method is called when the app starts
+     *
+     **************************************************************************/
 
     @Override
     protected void onStart() {
@@ -62,6 +84,13 @@ public class MyContactsActivity extends AppCompatActivity implements Serializabl
         });
     }
 
+
+    /**************************************************************************
+     *
+     * onBackPressed() - This method confirms the user
+     * whether they really want to go back
+     *
+     **************************************************************************/
     @Override
     public void onBackPressed() {
 
@@ -78,6 +107,13 @@ public class MyContactsActivity extends AppCompatActivity implements Serializabl
                 .show();
     }
 
+    /**************************************************************************
+     *
+     * onCreateOptionsMenu() - This method displays the icon
+     * on the action bar to add new contact
+     *
+     **************************************************************************/
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -85,6 +121,12 @@ public class MyContactsActivity extends AppCompatActivity implements Serializabl
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**************************************************************************
+     *
+     * onOptionsItemSelected() - This method displays the screen to
+     * add new contact
+     *
+     **************************************************************************/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.add_contact) {

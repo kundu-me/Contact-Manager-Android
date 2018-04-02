@@ -14,7 +14,10 @@ import com.utdallas.nxkundu.bean.Contact;
 import com.utdallas.nxkundu.data.FileReadWrite;
 
 /**
- * Created by nxkundu on 3/29/18.
+ * Created by nxkundu on 3/28/18.
+ * Written by Nirmallya Kundu for CS6326.001,
+ * assignment 4, starting March 28, 2018.
+ * NetID: nxk161830
  */
 
 public class MyContactDetailsActivity  extends AppCompatActivity implements View.OnClickListener {
@@ -31,6 +34,15 @@ public class MyContactDetailsActivity  extends AppCompatActivity implements View
     String operation = null;
     Contact objContact = null;
 
+
+    /**************************************************************************
+     *
+     * onCreate() - This method is called when this page is called
+     * It also cheks whether this page is called for
+     * Add New Contact or
+     * View/Edit/Delete Contact
+     *
+     **************************************************************************/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -52,6 +64,15 @@ public class MyContactDetailsActivity  extends AppCompatActivity implements View
             operation = (String) intent.getSerializableExtra("OPERATION");
         }
 
+
+        /**
+         * If this page is called for Add New Contact
+         * Then put the Save Button with the empty fields
+         *
+         * If the page is called for View Contact
+         * The put the Edit and Delete button
+         * with the selected contact in the fields
+         */
         if(("ADD").equalsIgnoreCase(operation)) {
 
             objButtonSave.setVisibility(View.VISIBLE);
@@ -79,6 +100,12 @@ public class MyContactDetailsActivity  extends AppCompatActivity implements View
         }
     }
 
+    /**************************************************************************
+     *
+     * onBackPressed() - This method is called to confirms the user
+     * whether they want to go back
+     *
+     **************************************************************************/
     @Override
     public void onBackPressed() {
 
@@ -102,6 +129,17 @@ public class MyContactDetailsActivity  extends AppCompatActivity implements View
         }
     }
 
+
+
+    /**************************************************************************
+     *
+     * onClick() - This method is called when a button is clicked on this page
+     * If Edit button is clicked:
+     * Then save button comes up with all the editable fields
+     * If the Delete Button is clicked then the contact is deleted
+     * If the Save button is click then the contact is saved
+     *
+     **************************************************************************/
     @Override
     public void onClick(View view) {
 
